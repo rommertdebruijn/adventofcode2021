@@ -4,14 +4,13 @@ import org.rommert.adventofcode2021.InputParser;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class NumberDisplayPart1 {
+public class NumberDisplayPart2 {
 
   private static final String input = "" +
       "cdafg dage fgdaec cdbfgae cge gcbdfa fdceb gfceab ge ecfgd | eg eg dfecag ge\n" +
@@ -221,12 +220,12 @@ public class NumberDisplayPart1 {
     int counter = 0;
     for (String signalLine : signalLines) {
       List<Integer> numbers = processSignalLine(signalLine);
-      counter += numbers.stream().filter(n -> n.equals(1)).count();
-      counter += numbers.stream().filter(n -> n.equals(4)).count();
-      counter += numbers.stream().filter(n -> n.equals(7)).count();
-      counter += numbers.stream().filter(n -> n.equals(8)).count();
+      String number = numbers.stream()
+          .map(Object::toString)
+          .reduce("", (total, value) -> total + value);
+      counter += Integer.parseInt(number);
     }
-    System.out.println("nr of 1,4,7,8 = " + counter);
+    System.out.println("sum of secrets = " + counter);
   }
 
   private static List<Integer> processSignalLine(String signalLine) {
@@ -236,7 +235,7 @@ public class NumberDisplayPart1 {
     Map<String, Integer> numbers = determineNumbers(signals);
 
     return secretNumbers.stream()
-        .map(NumberDisplayPart1::sortSignal)
+        .map(NumberDisplayPart2::sortSignal)
         .map(numbers::get)
         .collect(Collectors.toList());
   }
