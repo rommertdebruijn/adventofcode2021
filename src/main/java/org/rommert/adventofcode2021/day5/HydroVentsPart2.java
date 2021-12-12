@@ -527,7 +527,6 @@ public class HydroVentsPart2 {
         .filter(entry -> entry.getValue() > 1)
         .count();
     System.out.println("Nr of 2 or more lines crossing: " + nrOf2OrMoreLinesCrossing);
-
   }
 
   private static String buildRepresentation(Map<Coordinate, Long> heatMap) {
@@ -569,12 +568,6 @@ public class HydroVentsPart2 {
     public Line(Coordinate start, Coordinate end) {
       this.start = start;
       this.end = end;
-    }
-
-    boolean isDiagonal() {
-      int deltaX = end.x - start.x;
-      int deltaY = end.y - start.y;
-      return deltaX != 0 && deltaY != 0;
     }
 
     private List<Coordinate> getCoordinates() {
