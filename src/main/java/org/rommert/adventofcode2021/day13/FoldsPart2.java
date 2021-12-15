@@ -905,7 +905,6 @@ public class FoldsPart2 {
 //    System.out.println("Nr of dots after first fold: " + grid.rows.stream().flatMap(Collection::stream).filter(dot -> dot.equals("#")).count());
     for (Fold fold : folds) {
       grid = grid.fold(fold);
-
     }
     System.out.println(grid);
   }
