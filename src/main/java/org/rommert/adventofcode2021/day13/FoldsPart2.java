@@ -3,7 +3,6 @@ package org.rommert.adventofcode2021.day13;
 import org.rommert.adventofcode2021.InputParser;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
